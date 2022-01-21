@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import SingleComment from "./SingleComment";
 import uniqid from "uniqid";
-import { commentCreate } from "./redux/actions";
+import { commentCreate, commentsLoad } from "./redux/actions";
 
 const Comments = (props) => {
   const [textComment, setTextComment] = useState("");
@@ -10,6 +10,11 @@ const Comments = (props) => {
     return state.commentsReducer.comments;
   });
   const dispach = useDispatch();
+
+  useEffect(() => {
+      dispach(commentsLoad())
+  }, []);
+
   const handleInput = (event) => {
     setTextComment(event.target.value);
   };
