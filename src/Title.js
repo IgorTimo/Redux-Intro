@@ -2,12 +2,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { inputText } from "./redux/actions";
 
 const Title = (props) => {
-  console.log("props title >>>", props.title);
   const text = useSelector((state) => {
-
     return state.inputReducer.text;
   });
-  
+
   const dispach = useDispatch();
 
   const handleChange = (event) => {

@@ -6,8 +6,6 @@ const initialState = {
 
 
 export const inputReducer = (state = initialState, action) => {
-    console.log("input reduser>>> ", action);
-
     switch (action.type) {
       case INPUT_TEXT:
         return { ...state, text: action.text };
